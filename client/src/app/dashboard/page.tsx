@@ -22,6 +22,12 @@ export default function ReconDashboard() {
         {/* Job list */}
         <section className="lg:col-span-2 space-y-4">
           <h2 className="text-2xl font-extrabold tracking-tight">Active Reconciliations</h2>
+          {jobs.length === 0 && (
+            <div className="rounded-2xl border border-dashed border-white/10 p-8 text-center">
+              <Clock className="mx-auto h-10 w-10 text-slate-600 mb-3" />
+              <p className="text-slate-400 font-medium">No jobs yet. Click "New Job" to upload a GL CSV + invoice PDFs.</p>
+            </div>
+          )}
           {jobs.map((j) => (
             <a key={j.id} href={`/app/dashboard/${j.id}`} className="block rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-blue-400/30 transition-colors group">
               <div className="flex items-center justify-between mb-2">
